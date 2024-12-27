@@ -37,3 +37,27 @@ console.log(xyz);
 // 6. Object
 // 7. Symbol
 // 8. BigInt
+
+var num = 10;
+console.log('Number..', num);
+
+var str = "Hello, World!"
+console.log('String..', str);
+
+var bool = true;
+console.log('Boolean..', bool);
+
+var nullVar = null;
+console.log('Null..', nullVar);
+
+var undefVar;
+console.log('Undefined..', undefVar);
+
+var obj = { name: "John", age: 30 };
+console.log('Object..', obj);
+
+var sym = Symbol("Hello");
+console.log('Symbol..', sym);
+
+var bigInt = 10n;
+console.log('BigInt..', bigInt);
