@@ -48,3 +48,64 @@ const add = (a, b) => {
 }
 let ansrs = add(1, 2);
 console.log("Add Ans..!", ansrs);
+
+
+
+
+
+// variable scoping
+// 1. Global scope
+// 3. Block scope
+// 4. Function scope
+
+// globel scope
+var age = 15;
+console.log(age);
+
+{
+    console.log(age);
+}
+
+if (true) {
+    console.log(age);
+}
+
+for (let i = 0; i < 2; i++) {
+    console.log(age);
+}
+
+function sayHello() {
+    console.log("Hi", age);
+}
+sayHello();
+
+// function scope
+// log is not a function outer work 
+function sayHello() {
+    var name = "India"
+    console.log(" Helloo Dunia", name);
+}
+sayHello();
+
+// example function scope
+// function sayHello() {
+//     var fname = "India"
+//     console.log(" Helloo Dunia", fname);
+// }
+// console.log(fname);
+// sayHello();
+
+// Block scope
+{
+    var height = 180;
+}
+console.log(height);
+
+
+// temporal dead zone
+// let and const are block scope
+// let and const are hoisted but not initialized
+// let and const are not function scope
+// let and const are not global scope
+// let and const are block scope
+// let and const are hoisted but not initialized
