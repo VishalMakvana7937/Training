@@ -14,7 +14,7 @@ console.log("Start.!");
 // async
 setTimeout(() => {
     console.log('Love babbar');
-}, 5000);
+}, 5000);   
 
 // sync
 console.log("End.!");
