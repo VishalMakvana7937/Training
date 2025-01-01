@@ -52,12 +52,12 @@ const UseEffect = () => {
 
     // variation:5
     // its baarlet's add a cleanup function
-    useEffect(() => {
-        alert("count is updated");
-        return () => {
-            alert("count is unmounted from UI");
-        }
-    }, [count])
+    // useEffect(() => {
+    //     alert("count is updated");
+    //     return () => {
+    //         alert("count is unmounted from UI");
+    //     }
+    // }, [count])
 
     return (
         <>

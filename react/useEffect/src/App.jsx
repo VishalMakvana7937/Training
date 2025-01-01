@@ -13,12 +13,12 @@ function App() {
   return (
     <>
 
-      {/* <UseEffect /> */}
+      <UseEffect />
       {/* <LoggerComponents /> */}
       {/* <TimerComponents /> */}
       {/* <DataFetcher/> */}
       {/* <ResizeComponents/> */}
-      <MultiEffectComponents/>
+      {/* <MultiEffectComponents/> */}
     </>
   )
 

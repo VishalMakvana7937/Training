@@ -24,6 +24,7 @@ function App() {
           <p>Lorem ipsum dolor sit amet consectetur.</p>
           <p>cripton of the course</p>
         </Card>
+        
         <Card children="children is best">
           I am full stack developer
         </Card>
