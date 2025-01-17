@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { data, useSearchParams } from 'react-router-dom';
+import { addToPastes, updateToPastes } from '../redux/pasteSlice';
 
 const Home = () => {
 
@@ -16,7 +17,7 @@ const Home = () => {
     const paste = {
       title: title,
       content: value,
-      _id: pasteId || data.now().tosString(36),
+      _id: pasteId || Date.now().toString(36),
       createAt: new Date().toISOString()
     }
 
