@@ -1,12 +1,32 @@
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './App.css'
+import Navbar from './components/Navbar'
+import Home from './components/Home'
+import Pastes from './components/Pastes'
+import ViewPastes from './components/ViewPastes'
+
+const router = createBrowserRouter(
+  [
+    {
+      path: '/',
+      element: <div><Navbar /> <Home /> </div>,
+    },
+    {
+      path: '/pastes',
+      element: <div><Navbar /> <Pastes /> </div>,
+    },
+    {
+      path: '/pastes/:id',
+      element: <div><Navbar /> <ViewPastes /></div>,
+    }
+  ]
+)
 
 function App() {
 
   return (
     <>
-      <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+      <RouterProvider router={router} />
     </>
   )
 }
