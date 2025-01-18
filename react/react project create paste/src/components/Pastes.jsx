@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { removeFromPastes } from '../redux/pasteSlice';
+import toast from 'react-hot-toast';
 
 const Pastes = () => {
 
@@ -13,6 +15,26 @@ const Pastes = () => {
     (paste) => paste.title.toLowerCase().includes(searchTerm.toLowerCase())
   )
 
+  const handelDelet = (id) => {
+    dispatch(removeFromPastes({ _id: id }));
+  };
+
+  const handleShare = (paste) => {
+    if (navigator.share) {
+      navigator.share({
+        title: paste.title,
+        text: paste.content,
+        url: window.location.href + `?pasteId=${paste._id}`,
+      }).then(() => {
+        toast.success('Shared successfully');
+      }).catch((error) => {
+        toast.error('Error sharing paste');
+        console.error('Sharing failed:', error);
+      });
+    } else {
+      toast.error('Sharing not supported on this device');
+    }
+  };
 
   return (
     <div>
@@ -29,20 +51,30 @@ const Pastes = () => {
 
                 <div className='flex flex-row place-content-between'>
                   <button>
-                    Edit
+                    <a href={`/?pasteId=${paste?._id}`}>
+                      Edit
+                    </a>
                   </button>
                   <button>
-                    View
+                    <a href={`/pastes/${paste?._id}`}>
+                      View
+                    </a>
                   </button>
-                  <button>
+                  <button onClick={() => handelDelet(paste?._id)}>
                     Delete
                   </button>
-                  <button>
-                    Edit
+                  <button onClick={() => {
+                    navigator.clipboard.writeText(paste?.content);
+                    toast.success('Copied to clipboard');
+                  }}>
+                    Copy
                   </button>
-                  <button>
-                    Edit
+                  <button onClick={() => handleShare(paste)}>
+                    Share
                   </button>
+                </div>
+                <div>
+                  {paste.createdAt}
                 </div>
               </div>
             )
@@ -53,4 +85,4 @@ const Pastes = () => {
   )
 }
 
-export default Pastes
+export default Pastes;

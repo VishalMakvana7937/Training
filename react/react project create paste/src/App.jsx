@@ -17,7 +17,7 @@ const router = createBrowserRouter(
     },
     {
       path: '/pastes/:id',
-      element: <div><Navbar /> <ViewPastes /></div>,
+      element: <div> <Navbar /> <ViewPastes /></div>
     }
   ]
 )
